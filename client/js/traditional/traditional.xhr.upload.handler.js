@@ -132,10 +132,17 @@ qq.traditional.XhrUploadHandler = function(spec, proxy) {
                 method = spec.method,
                 endpoint = spec.endpointStore.get(id),
                 name = getName(id),
-                size = getSize(id);
+                size = getSize(id),
+                chunkIndex = params["qqpartindex"],
+                chunkInfo = null;
 
             params[spec.uuidName] = getUuid(id);
             params[spec.filenameParam] = name;
+            // if chunk specific params are specified it - set it here.
+            chunkInfo = spec.chunkParamsStore.getChunkParams(id, chunkIndex);
+            if(chunkInfo !== null) {
+                params[spec.chunkInfoParamName] = chunkInfo
+            }
 
             if (multipart) {
                 params[spec.totalFileSizeName] = size;
