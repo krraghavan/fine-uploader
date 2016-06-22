@@ -140,7 +140,7 @@ qq.traditional.XhrUploadHandler = function(spec, proxy) {
             params[spec.filenameParam] = name;
             // if chunk specific params are specified it - set it here.
             chunkInfo = spec.chunkParamsStore.getChunkParams(id, chunkIndex);
-            if(chunkInfo !== null) {
+            if (chunkInfo !== null) {
                 params[spec.chunkInfoParamName] = chunkInfo;
             }
 

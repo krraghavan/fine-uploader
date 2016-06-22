@@ -527,7 +527,7 @@
                     }
                 },
 
-                setChunkParams : function(val, id, chunkId) {
+                setChunkParams: function(val, id, chunkId) {
                     if (id == null) {
                         chunkParamStore = {};
                     }
@@ -536,7 +536,7 @@
                     chunkParamStore[id][chunkId] = copy(val);
                 },
 
-                getChunkParams : function(id, chunkId) {
+                getChunkParams: function(id, chunkId) {
                     return copy(chunkParamStore[id][chunkId]);
                 },
 
@@ -1044,7 +1044,7 @@
             handler(actualFile, name, uuid, size, newFileWrapperList, batchId, this._options.request.uuidName, {
                 uploadData: self._uploadData,
                 paramsStore: self._paramsStore,
-                chunkParamsStore : self._chunkParamsStore,
+                chunkParamsStore: self._chunkParamsStore,
                 addFileToHandler: function(id, file) {
                     self._handler.add(id, file);
                     self._netUploadedOrQueued++;
