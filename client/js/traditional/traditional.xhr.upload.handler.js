@@ -133,7 +133,7 @@ qq.traditional.XhrUploadHandler = function(spec, proxy) {
                 endpoint = spec.endpointStore.get(id),
                 name = getName(id),
                 size = getSize(id),
-                chunkIndex = params["qqpartindex"],
+                chunkIndex = params[spec.chunking.paramNames.partIndex],
                 chunkInfo = null;
 
             params[spec.uuidName] = getUuid(id);
@@ -141,7 +141,7 @@ qq.traditional.XhrUploadHandler = function(spec, proxy) {
             // if chunk specific params are specified it - set it here.
             chunkInfo = spec.chunkParamsStore.getChunkParams(id, chunkIndex);
             if(chunkInfo !== null) {
-                params[spec.chunkInfoParamName] = chunkInfo
+                params[spec.chunkInfoParamName] = chunkInfo;
             }
 
             if (multipart) {
