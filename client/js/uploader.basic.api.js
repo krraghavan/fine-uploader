@@ -537,7 +537,10 @@
                 },
 
                 getChunkParams: function(id, chunkId) {
-                    return copy(chunkParamStore[id][chunkId]);
+                    if (chunkId && chunkParamStore && chunkParamStore[id]) {
+                        return copy(chunkParamStore[id][chunkId]);
+                    }
+                    return null;
                 },
 
                 get: function(id) {
